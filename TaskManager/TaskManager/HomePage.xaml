@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             BackgroundColor="#F5F5F5"
+             x:Class="TaskManager.HomePage"
+             Title="Dashboard">
+    <ContentPage.Content>
+        <!-- Main Layout -->
+        <Grid RowSpacing="20" Padding="10">
+            <!-- Grid Definitions -->
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <!-- Menu Bar -->
+                <RowDefinition Height="*" />
+                <!-- Main Content -->
+            </Grid.RowDefinitions>
+
+            <!-- Menu Bar -->
+            <Grid Grid.Row="0" BackgroundColor="Purple" Padding="10" ColumnSpacing="20">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <!-- Account -->
+                    <ColumnDefinition Width="*" />
+                    <!-- Logout -->
+                </Grid.ColumnDefinitions>
+
+                <!-- Account Menu Item -->
+                <Label Text="Account"
+                   FontSize="18"
+                   FontAttributes="Bold"
+                   TextColor="White"
+                   HorizontalTextAlignment="Center"
+                   VerticalTextAlignment="Center"
+                   Grid.Column="0">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnAccountClicked" />
+                    </Label.GestureRecognizers>
+                </Label>
+
+                <!-- Logout Menu Item -->
+                <Label Text="Logout"
+                   FontSize="18"
+                   FontAttributes="Bold"
+                   TextColor="White"
+                   HorizontalTextAlignment="Center"
+                   VerticalTextAlignment="Center"
+                   Grid.Column="1">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnLogoutClicked" />
+                    </Label.GestureRecognizers>
+                </Label>
+            </Grid>
+
+            <!-- Main Content -->
+            <StackLayout Grid.Row="1" VerticalOptions="CenterAndExpand" Spacing="20">
+                <!-- Welcome Message -->
+                <Frame BackgroundColor="Purple" CornerRadius="15" Padding="20" HasShadow="True">
+                    <Label x:Name="WelcomeLabel"
+                       Text="Welcome, [UserName]!"
+                       FontSize="24"
+                       FontAttributes="Bold"
+                       HorizontalTextAlignment="Center"
+                       VerticalTextAlignment="Center"
+                       TextColor="White" />
+                </Frame>
+
+                <!-- Notifications Button -->
+                <Button Text="View Notifications"
+                        x:Name="NotificationBadge"
+                    FontSize="18"
+                    BackgroundColor="Purple"
+                    TextColor="White"
+                    CornerRadius="10"
+                    HeightRequest="50"
+                    Clicked="OnNotificationsClicked" />
+
+                <!-- Tasks Button -->
+                <Button Text="View Tasks"
+                    FontSize="18"
+                    BackgroundColor="Purple"
+                    TextColor="White"
+                    CornerRadius="10"
+                    HeightRequest="50"
+                    Clicked="OnTasksClicked" />
+
+                <!-- Create Task Button -->
+                <Button Text="Create New Task"
+                    FontSize="18"
+                    BackgroundColor="Purple"
+                    TextColor="White"
+                    CornerRadius="10"
+                    HeightRequest="50"
+                    Clicked="OnCreateTaskClicked" />
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

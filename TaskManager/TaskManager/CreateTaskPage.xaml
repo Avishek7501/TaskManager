@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             BackgroundColor="#F5F5F5"
+             x:Class="TaskManager.CreateTaskPage">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Padding="20" Spacing="20">
+                <!-- Page Title -->
+                <Label Text="Create New Task"
+                   FontSize="28"
+                   FontAttributes="Bold"
+                   TextColor="Purple"
+                   HorizontalOptions="Center" />
+
+                <!-- Title Input -->
+                <Frame BackgroundColor="White" CornerRadius="10" Padding="10" HasShadow="True">
+                    <StackLayout>
+                        <Label Text="Task Title" FontSize="16" TextColor="Black" />
+                        <Entry x:Name="TitleEntry"
+                           Placeholder="Enter task title"
+                           FontSize="16"
+                           TextColor="Black" />
+                    </StackLayout>
+                </Frame>
+
+                <!-- Description Input -->
+                <Frame BackgroundColor="White" CornerRadius="10" Padding="10" HasShadow="True">
+                    <StackLayout>
+                        <Label Text="Task Description" FontSize="16" TextColor="Black" />
+                        <Editor x:Name="DescriptionEditor"
+                            Placeholder="Enter task description"
+                            FontSize="16"
+                            TextColor="Black"
+                            HeightRequest="100" />
+                    </StackLayout>
+                </Frame>
+
+                <!-- Priority Picker -->
+                <Frame BackgroundColor="White" CornerRadius="10" Padding="10" HasShadow="True">
+                    <StackLayout>
+                        <Label Text="Priority" FontSize="16" TextColor="Black" />
+                        <Picker x:Name="PriorityPicker"
+                            Title="Select priority"
+                            FontSize="16"
+                            TextColor="Black">
+                            <Picker.ItemsSource>
+                                <x:Array Type="{x:Type x:String}">
+                                    <x:String>Low</x:String>
+                                    <x:String>Medium</x:String>
+                                    <x:String>High</x:String>
+                                </x:Array>
+                            </Picker.ItemsSource>
+                        </Picker>
+                    </StackLayout>
+                </Frame>
+
+                <!-- Due Date Picker -->
+                <Frame BackgroundColor="White" CornerRadius="10" Padding="10" HasShadow="True">
+                    <StackLayout>
+                        <Label Text="Due Date" FontSize="16" TextColor="Black" />
+                        <DatePicker x:Name="DueDatePicker"
+                                FontSize="16"
+                                TextColor="Black" />
+                    </StackLayout>
+                </Frame>
+
+                <!-- Buttons -->
+                <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" Spacing="20">
+                    <Button Text="Create"
+                        FontSize="16"
+                        BackgroundColor="Purple"
+                        TextColor="White"
+                        CornerRadius="20"
+                        WidthRequest="150"
+                        Clicked="OnCreateTaskClicked" />
+
+                    <Button Text="Cancel"
+                        FontSize="16"
+                        BackgroundColor="Gray"
+                        TextColor="White"
+                        CornerRadius="20"
+                        WidthRequest="150"
+                        Clicked="OnCancelClicked" />
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

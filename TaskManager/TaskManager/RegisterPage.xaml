@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             BackgroundColor="#f5f5f5"
+             x:Class="TaskManager.RegisterPage">
+    <ContentPage.Content>
+        <StackLayout Padding="20" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand" Spacing="20">
+            <!-- App Title -->
+            <Label Text="Create Account" 
+               FontSize="30" 
+               FontAttributes="Bold" 
+               HorizontalOptions="Center" 
+               TextColor="#6200EE" />
+
+            <!-- Instruction Text -->
+            <Label Text="Sign up to get started with Task Manager." 
+               FontSize="16" 
+               HorizontalOptions="Center" 
+               TextColor="#333" />
+
+            <!-- Name Entry -->
+            <Frame CornerRadius="10" Padding="10" BackgroundColor="White">
+                <Entry x:Name="NameEntry" 
+                   Placeholder="Name" 
+                   FontSize="16" />
+            </Frame>
+
+            <!-- Email Entry -->
+            <Frame CornerRadius="10" Padding="10" BackgroundColor="White">
+                <Entry x:Name="EmailEntry" 
+                   Placeholder="Email" 
+                   Keyboard="Email" 
+                   FontSize="16" />
+            </Frame>
+
+            <!-- Password Entry -->
+            <Frame CornerRadius="10" Padding="10" BackgroundColor="White">
+                <Entry x:Name="PasswordEntry" 
+                   Placeholder="Password" 
+                   IsPassword="True" 
+                   FontSize="16" />
+            </Frame>
+
+            <!-- Confirm Password Entry -->
+            <Frame CornerRadius="10" Padding="10" BackgroundColor="White">
+                <Entry x:Name="ConfirmPasswordEntry" 
+                   Placeholder="Confirm Password" 
+                   IsPassword="True" 
+                   FontSize="16" />
+            </Frame>
+
+            <!-- Register Button -->
+            <Button Text="Register" 
+                BackgroundColor="#6200EE" 
+                TextColor="White" 
+                FontAttributes="Bold" 
+                CornerRadius="25" 
+                HeightRequest="50" 
+                HorizontalOptions="FillAndExpand"
+                Clicked="OnRegisterClicked" />
+
+            <!-- Login Navigation -->
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                <Label Text="Already have an account? " 
+                   FontSize="14" 
+                   TextColor="#333" />
+                <Label Text="Login here" 
+                   FontSize="14" 
+                   TextColor="#6200EE" 
+                   FontAttributes="Bold">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnLoginTapped" />
+                    </Label.GestureRecognizers>
+                </Label>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             BackgroundColor="#f5f5f5"
+             x:Class="TaskManager.LoginPage">
+    <ContentPage.Content>
+        <StackLayout Padding="20" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand" Spacing="20">
+            <!-- App Title -->
+            <Label Text="Task Manager" 
+               FontSize="36" 
+               FontAttributes="Bold" 
+               HorizontalOptions="Center" 
+               TextColor="#6200EE" />
+
+            <!-- Welcome Text -->
+            <Label Text="Welcome Back! Please login to continue." 
+               FontSize="16" 
+               HorizontalOptions="Center" 
+               TextColor="#333" />
+
+            <!-- Email Entry -->
+            <Frame CornerRadius="10" Padding="10" BackgroundColor="White">
+                <Entry x:Name="EmailEntry" 
+                   Placeholder="Email" 
+                   Keyboard="Email" 
+                   FontSize="16" />
+            </Frame>
+
+            <!-- Password Entry -->
+            <Frame CornerRadius="10" Padding="10" BackgroundColor="White">
+                <Entry x:Name="PasswordEntry" 
+                   Placeholder="Password" 
+                   IsPassword="True" 
+                   FontSize="16" />
+            </Frame>
+
+            <!-- Login Button -->
+            <Button Text="Login" 
+                BackgroundColor="#6200EE" 
+                TextColor="White" 
+                FontAttributes="Bold" 
+                CornerRadius="25" 
+                HeightRequest="50" 
+                HorizontalOptions="FillAndExpand"
+                Clicked="OnLoginClicked" />
+
+            <!-- Register Navigation -->
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                <Label Text="Don't have an account? " 
+                   FontSize="14" 
+                   TextColor="#333" />
+                <Label Text="Register here" 
+                   FontSize="14" 
+                   TextColor="#6200EE" 
+                   FontAttributes="Bold">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnRegisterTapped" />
+                    </Label.GestureRecognizers>
+                </Label>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

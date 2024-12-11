@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TaskManager.NotificationsPage">
+    <ContentPage.Content>
+        <StackLayout Padding="10" Spacing="10">
+            <!-- Header -->
+            <Label Text="Your Notifications"
+                   FontSize="24"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center" />
+
+            <!-- Notifications List -->
+            <CollectionView x:Name="NotificationList"
+                            ItemsSource="{Binding Notifications}"
+                            SelectionMode="None">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame BackgroundColor="#f8f9fa" Padding="10" CornerRadius="10" Margin="0,5">
+                            <StackLayout>
+                                <Label Text="{Binding Message}"
+                                       FontSize="16"
+                                       FontAttributes="Bold"
+                                       TextColor="Black" />
+                                <Label Text="{Binding NotificationDate, StringFormat='Date: {0:MM/dd/yyyy}'}"
+                                       FontSize="14"
+                                       TextColor="Gray" />
+
+                                <Button Text="Mark as Read"
+                                        FontSize="14"
+                                        BackgroundColor="Green"
+                                        TextColor="White"
+                                        Padding="5"
+                                        CornerRadius="5"
+                                        HorizontalOptions="End"
+                                        Command="{Binding Path=BindingContext.MarkAsReadCommand, Source={x:Reference NotificationList}}"
+                                        CommandParameter="{Binding NotificationId}" />
+                            </StackLayout>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

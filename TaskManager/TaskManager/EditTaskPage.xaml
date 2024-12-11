@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TaskManager.EditTaskPage">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Padding="20" Spacing="20">
+                <!-- Page Title -->
+                <Label Text="Edit Task"
+                   FontSize="28"
+                   FontAttributes="Bold"
+                   TextColor="Purple"
+                   HorizontalOptions="Center" />
+
+                <!-- Task Title -->
+                <Label Text="Task Title"
+                   FontSize="16"
+                   FontAttributes="Bold"
+                   TextColor="Black" />
+                <Entry x:Name="TitleEntry"
+                   Text="{Binding Title}"
+                   Placeholder="Enter task title"
+                   FontSize="16"
+                   TextColor="#424242"
+                   BackgroundColor="White"
+                   Margin="0,5"
+                   HeightRequest="50" />
+
+                <!-- Task Description -->
+                <Label Text="Task Description"
+                   FontSize="16"
+                   FontAttributes="Bold"
+                   TextColor="Black" />
+                <Editor x:Name="DescriptionEditor"
+                    Text="{Binding Description}"
+                    Placeholder="Enter task description"
+                    FontSize="16"
+                    TextColor="#424242"
+                    BackgroundColor="White"
+                    HeightRequest="100" />
+
+                <!-- Task Priority -->
+                <Label Text="Priority"
+                   FontSize="16"
+                   FontAttributes="Bold"
+                   TextColor="Black" />
+                <Picker x:Name="PriorityPicker"
+                    SelectedItem="{Binding Priority}"
+                    Title="Select Priority"
+                    FontSize="16"
+                    TextColor="#424242"
+                    BackgroundColor="White">
+                    <Picker.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>Low</x:String>
+                            <x:String>Medium</x:String>
+                            <x:String>High</x:String>
+                        </x:Array>
+                    </Picker.ItemsSource>
+                </Picker>
+
+                <!-- Task Status -->
+                <Label Text="Status"
+                   FontSize="16"
+                   FontAttributes="Bold"
+                   TextColor="Black" />
+                <Picker x:Name="StatusPicker"
+                    SelectedItem="{Binding Status}"
+                    Title="Select Status"
+                    FontSize="16"
+                    TextColor="#424242"
+                    BackgroundColor="White">
+                    <Picker.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>Pending</x:String>
+                            <x:String>In Progress</x:String>
+                            <x:String>Completed</x:String>
+                        </x:Array>
+                    </Picker.ItemsSource>
+                </Picker>
+
+                <!-- Task Due Date -->
+                <Label Text="Due Date"
+                   FontSize="16"
+                   FontAttributes="Bold"
+                   TextColor="Black" />
+                <DatePicker x:Name="DueDatePicker"
+                        Date="{Binding DueDate}"
+                        FontSize="16"
+                        TextColor="#424242"
+                        BackgroundColor="White" />
+
+                <!-- Action Buttons -->
+                <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Spacing="20">
+                    <Button Text="Save"
+                        FontSize="16"
+                        BackgroundColor="Purple"
+                        TextColor="White"
+                        CornerRadius="20"
+                        Padding="10,5"
+                        WidthRequest="120"
+                        Clicked="OnSaveClicked" />
+
+                    <Button Text="Cancel"
+                        FontSize="16"
+                        BackgroundColor="Gray"
+                        TextColor="White"
+                        CornerRadius="20"
+                        Padding="10,5"
+                        WidthRequest="120"
+                        Clicked="OnCancelClicked" />
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

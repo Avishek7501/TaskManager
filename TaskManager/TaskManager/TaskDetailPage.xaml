@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TaskManager.TaskDetailPage">
+    <ContentPage.Content>
+
+        <ScrollView>
+            <StackLayout Padding="20" Spacing="15">
+                <!-- Page Title -->
+                <Label Text="Task Details"
+                   FontSize="28"
+                   FontAttributes="Bold"
+                   TextColor="Purple"
+                   HorizontalOptions="Center" />
+
+                <!-- Task Details Card -->
+                <Frame BackgroundColor="White"
+                   CornerRadius="15"
+                   Padding="20"
+                   HasShadow="True">
+                    <StackLayout Spacing="10">
+                        <!-- Task Title -->
+                        <Label Text="Title"
+                           FontSize="16"
+                           FontAttributes="Bold"
+                           TextColor="Black" />
+                        <Label Text="{Binding Task.Title}"
+                           FontSize="18"
+                           FontAttributes="Bold"
+                           TextColor="#424242" />
+
+                        <!-- Task Description -->
+                        <Label Text="Description"
+                           FontSize="16"
+                           FontAttributes="Bold"
+                           TextColor="Black" />
+                        <Label Text="{Binding Task.Description}"
+                           FontSize="16"
+                           TextColor="#757575" />
+
+                        <!-- Task Priority -->
+                        <Label Text="Priority"
+                           FontSize="16"
+                           FontAttributes="Bold"
+                           TextColor="Black" />
+                        <Label Text="{Binding Task.Priority}"
+                           FontSize="16"
+                           TextColor="#757575" />
+
+                        <!-- Task Status -->
+                        <Label Text="Status"
+                           FontSize="16"
+                           FontAttributes="Bold"
+                           TextColor="Black" />
+                        <Label Text="{Binding Task.Status}"
+                           FontSize="16"
+                           TextColor="#757575" />
+
+                        <!-- Task Due Date -->
+                        <Label Text="Due Date"
+                           FontSize="16"
+                           FontAttributes="Bold"
+                           TextColor="Black" />
+                        <Label Text="{Binding Task.DueDate, StringFormat='{0:MM/dd/yyyy}'}"
+                           FontSize="16"
+                           TextColor="#757575" />
+
+                        <!-- Task Created Date -->
+                        <Label Text="Created Date"
+                           FontSize="16"
+                           FontAttributes="Bold"
+                           TextColor="Black" />
+                        <Label Text="{Binding Task.CreatedDate, StringFormat='{0:MM/dd/yyyy}'}"
+                           FontSize="16"
+                           TextColor="#757575" />
+                    </StackLayout>
+                </Frame>
+
+                <!-- Action Buttons -->
+                <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Spacing="15">
+                    <Button Text="Edit"
+                        FontSize="16"
+                        BackgroundColor="#6A1B9A" 
+                        TextColor="White"
+                        CornerRadius="20"
+                        Padding="10,5"
+                        WidthRequest="120"
+                        Clicked="OnEditTaskClicked" />
+                        <Button Text="Delete"
+                        FontSize="16"
+                        BackgroundColor="#D32F2F" 
+                            TextColor="White"
+                        CornerRadius="20"
+                        Padding="10,5"
+                        WidthRequest="120"
+                        Clicked="OnDeleteTaskClicked" />
+                </StackLayout>
+
+                <!-- Task History Section -->
+                <Label Text="Task History"
+                   FontSize="20"
+                   FontAttributes="Bold"
+                   TextColor="Purple"
+                   HorizontalOptions="Start" />
+
+                <CollectionView ItemsSource="{Binding TaskHistory}">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Frame BackgroundColor="White"
+                               CornerRadius="10"
+                               Margin="0,5"
+                               Padding="10"
+                               HasShadow="True">
+                                <StackLayout>
+                                    <Label Text="{Binding Status}"
+                                       FontSize="16"
+                                       FontAttributes="Bold"
+                                       TextColor="Black" />
+                                    <Label Text="{Binding UpdatedDate, StringFormat='{0:MM/dd/yyyy HH:mm}'}"
+                                       FontSize="14"
+                                       TextColor="#757575" />
+                                </StackLayout>
+                            </Frame>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
